@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PerformanceCore | Career Readiness Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#b2c5ff",
+              "inverse-surface": "#303030",
+              "secondary": "#3e58b4",
+              "outline-variant": "#c4c6d4",
+              "surface-variant": "#e2e2e2",
+              "outline": "#747683",
+              "inverse-on-surface": "#f1f1f1",
+              "on-secondary-fixed": "#001452",
+              "surface-dim": "#dadada",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "on-primary-fixed": "#001848",
+              "tertiary-fixed": "#96fa7a",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#dde1ff",
+              "secondary-fixed-dim": "#b7c4ff",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#3059b7",
+              "surface-container": "#eeeeee",
+              "on-surface-variant": "#434652",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#233f9b",
+              "background": "#f9f9f9",
+              "surface-container-low": "#f3f3f3",
+              "primary": "#1847a4",
+              "on-secondary-container": "#10308d",
+              "primary-fixed": "#dae2ff",
+              "on-tertiary-fixed-variant": "#0b5300",
+              "tertiary-container": "#147500",
+              "tertiary-fixed-dim": "#7bdd61",
+              "on-primary-fixed-variant": "#0b409e",
+              "on-primary-container": "#dbe2ff",
+              "surface": "#f9f9f9",
+              "primary-container": "#3860be",
+              "on-tertiary-fixed": "#022100",
+              "on-background": "#1b1b1b",
+              "error": "#ba1a1a",
+              "surface-bright": "#f9f9f9",
+              "tertiary": "#0d5a00",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1b1b1b",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#869eff",
+              "surface-container-highest": "#e2e2e2",
+              "on-tertiary-container": "#96fa7a",
+              "inverse-primary": "#b2c5ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-blur {
+        backdrop-filter: blur(24px);
+        background: rgba(27, 27, 27, 0.05);
+      }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50 dark:bg-slate-950 shadow-sm backdrop-blur-md transition-all duration-300">
+<nav class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto font-['Manrope'] font-bold tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-blue-800 dark:text-blue-300 uppercase">
+                PerformanceCore
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Why Us</a>
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1 transition-all duration-300 hover:opacity-80" href="#">Assessment</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Resources</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-sm uppercase tracking-wider scale-95 active:scale-90 transition-all duration-300">
+                Check Readiness
+            </button>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-24 px-6 md:px-12 flex flex-col items-center">
+<!-- Progress Orchestrator -->
+<div class="w-full max-w-4xl mb-16">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="font-headline font-extrabold text-xs uppercase tracking-[0.2em] text-primary">Dimension 01 / 04</span>
+<h1 class="font-headline font-bold text-4xl text-on-surface tracking-tight mt-1">Clarity of Vision</h1>
+</div>
+<div class="text-right">
+<span class="font-label font-semibold text-lg text-primary">25%</span>
+<p class="text-xs text-on-surface-variant font-medium">Progress to Momentum Score</p>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/4 rounded-full transition-all duration-700"></div>
+</div>
+</div>
+<!-- Assessment Interface -->
+<div class="w-full max-w-4xl space-y-12">
+<!-- Question 01 -->
+<section class="group">
+<div class="flex items-start gap-6 mb-8">
+<span class="flex-none w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline font-bold text-sm">1</span>
+<h2 class="font-headline text-2xl text-on-surface leading-tight pt-1">
+                        I can describe the kind of work I want to be doing in the next 3 years in one clear sentence.
+                    </h2>
+</div>
+<!-- Likert Scale -->
+<div class="grid grid-cols-5 gap-3 md:gap-4 md:px-14">
+<button class="group/option flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover/option:text-primary">1</span>
+<span class="text-[10px] md:text-xs text-center font-semibold text-outline">Strongly Disagree</span>
+</button>
+<button class="group/option flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover/option:text-primary">2</span>
+<span class="text-[10px] md:text-xs text-center font-semibold text-outline">Disagree</span>
+</button>
+<button class="group/option flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover/option:text-primary">3</span>
+<span class="text-[10px] md:text-xs text-center font-semibold text-outline">Neutral</span>
+</button>
+<button class="group/option flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover/option:text-primary">4</span>
+<span class="text-[10px] md:text-xs text-center font-semibold text-outline">Agree</span>
+</button>
+<button class="group/option flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover/option:text-primary">5</span>
+<span class="text-[10px] md:text-xs text-center font-semibold text-outline">Strongly Agree</span>
+</button>
+</div>
+</section>
+<!-- Question 02 -->
+<section class="group pt-12 border-t border-surface-container">
+<div class="flex items-start gap-6 mb-8">
+<span class="flex-none w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline font-bold text-sm">2</span>
+<h2 class="font-headline text-2xl text-on-surface leading-tight pt-1">
+                        I know which skills I must build in the next 12 months to reach my next role.
+                    </h2>
+</div>
+<div class="grid grid-cols-5 gap-3 md:gap-4 md:px-14">
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">1</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">2</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">3</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">4</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">5</span>
+</button>
+</div>
+</section>
+<!-- Question 03 -->
+<section class="group pt-12 border-t border-surface-container">
+<div class="flex items-start gap-6 mb-8">
+<span class="flex-none w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline font-bold text-sm">3</span>
+<h2 class="font-headline text-2xl text-on-surface leading-tight pt-1">
+                        I regularly review my career direction instead of just 'seeing what happens'.
+                    </h2>
+</div>
+<div class="grid grid-cols-5 gap-3 md:gap-4 md:px-14">
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">1</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">2</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">3</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">4</span>
+</button>
+<button class="flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-container-lowest border-l-2 border-transparent hover:border-primary transition-all duration-200">
+<span class="text-xs font-bold text-on-surface-variant">5</span>
+</button>
+</div>
+</section>
+<!-- Behavioral Receipt Section -->
+<section class="mt-20 p-12 bg-primary rounded-xl text-on-primary overflow-hidden relative">
+<div class="relative z-10">
+<span class="font-headline font-extrabold text-xs uppercase tracking-[0.3em] opacity-80">Behavioral Momentum</span>
+<h3 class="font-headline text-3xl font-bold mt-4 mb-8 max-w-2xl leading-tight">In the past 30 days, I have taken a specific action to advance my long-term career vision.</h3>
+<div class="flex flex-wrap gap-6">
+<button class="px-10 py-4 bg-tertiary-fixed text-on-tertiary-fixed font-headline font-bold rounded-lg uppercase tracking-wider text-sm transition-transform active:scale-95">Yes, I Have</button>
+<button class="px-10 py-4 border border-on-primary/30 hover:bg-on-primary/10 text-on-primary font-headline font-bold rounded-lg uppercase tracking-wider text-sm transition-transform active:scale-95">Not Yet</button>
+</div>
+</div>
+<!-- Decorative Architectural Shape -->
+<div class="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-primary-container/40 to-transparent skew-x-12 transform translate-x-16"></div>
+</section>
+<!-- Action Navigation -->
+<div class="pt-20 flex justify-between items-center">
+<button class="flex items-center gap-2 font-headline font-bold text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Previous
+                </button>
+<button class="px-12 py-5 bg-primary text-on-primary font-headline font-extrabold rounded-lg uppercase tracking-widest text-sm shadow-[0_24px_48px_rgba(24,71,164,0.15)] hover:-translate-y-1 transition-all duration-300">
+                    Save &amp; Continue
+                </button>
+</div>
+</div>
+<!-- Vision Insight Card (Luxury Sidebar Element for context) -->
+<aside class="w-full max-w-4xl mt-32 grid md:grid-cols-2 gap-12">
+<div class="bg-surface-container-low p-10 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">lightbulb</span>
+<h4 class="font-headline text-xl font-bold mb-3">Why Clarity Matters</h4>
+<p class="text-on-surface-variant leading-relaxed">
+                    According to the PerformanceCore framework, clarity is the primary driver of professional velocity. Without a 3-year target, daily efforts become reactive rather than strategic.
+                </p>
+</div>
+<div class="relative rounded-xl overflow-hidden min-h-[240px]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern high-rise architectural facade with clean glass lines and sharp professional perspective in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeVlORynkAf1IcpD74GDUN19nKWgrlphBZMWAHk1AmW0Ry7bCF1r58Fig1VDg_8vqOg1dpVeLuegNDi1t7ai_CDwSZMbW5MHkF4Me2QF2TOd8eH_z2ird5GtqcXJNECWcTQ0ioP_VSZ2XhztPYSd05NPQsfRSKtHVYfxcCZtiFCKD0buo4DwPB_-68SeUBSkbxpgny5DBrj7KDH_TUm2KjDS_a2ek01BcDq4toceDMxhuDe5wmteeGUeETFXSObeQjik9oH_Nmmgc"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute inset-0 flex items-end p-8">
+<p class="text-white font-headline font-bold text-lg leading-snug">Architecting your professional trajectory requires precision, not hope.</p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 mt-auto bg-slate-900 dark:bg-black border-t border-slate-800 font-['Inter'] text-sm tracking-wide">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-screen-2xl mx-auto text-left">
+<div>
+<div class="text-xl font-bold text-white mb-6 uppercase tracking-tighter">PerformanceCore</div>
+<p class="text-slate-400 max-w-xs leading-relaxed">The scientific framework for executive excellence and career momentum.</p>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-slate-400 hover:text-white transition-colors duration-200 hover:underline" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-200 hover:underline" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-200 hover:underline" href="#">Contact Support</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-200 hover:underline" href="#">Career Framework</a>
+</div>
+<div class="text-slate-400 text-xs md:text-right flex flex-col justify-end">
+<p>© 2024 PerformanceCore. Engineered for Excellence.</p>
+</div>
+</div>
+</footer>
+</body></html>

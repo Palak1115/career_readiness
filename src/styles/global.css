@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* Enable dark variant */
+@variant dark (&:where(.dark, .dark *));
+
+/* ===============================
+   THEME TOKENS (Tailwind v4)
+================================ */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+/* ===============================
+   BASE DESIGN TOKENS
+================================ */
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1b1b1b;
+
+    --card: #f9f9f9;
+    --card-foreground: #1b1b1b;
+
+    --primary: #1847a4; /* Dark Blue from logo */
+    --primary-foreground: #ffffff;
+
+    --secondary: #49a078; /* Green from logo */
+    --secondary-foreground: #ffffff;
+
+    --border: #e5e7eb;
+    --ring: #1847a4;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #f9f9f9;
+
+    --card: #020617;
+    --card-foreground: #f9f9f9;
+
+    --primary: #1847a4;
+    --primary-foreground: #ffffff;
+
+    --secondary: #49a078;
+    --secondary-foreground: #ffffff;
+
+    --border: #1e293b;
+    --ring: #1847a4;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-source-sans);
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-medium;
+  }
+
+  p {
+    @apply p-0 m-0;
+  }
+}
+
+/* Respect system UI */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+/* ===============================
+   COMPONENT CLASSES
+================================ */
+
+/* Online/Offline Status Messages */
+.custom-offline-message .ant-message-notice-content {
+  background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+  animation: slideInDown 0.3s ease-out;
+}
+
+.custom-online-message .ant-message-notice-content {
+  background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.3);
+  animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .authCard {
+    @apply w-full max-w-lg rounded-lg border border-border bg-card text-card-foreground shadow-sm p-4;
+  }
+
+  .whiteText {
+    @apply text-white;
+  }
+
+  .blackText {
+    @apply text-black dark:text-white;
+  }
+}
+/* ===============================
+   EXECUTIVE PRINT ARCHITECTURE
+================================ */
+@media print {
+  header,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 10pt;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  .bg-primary,
+  .bg-slate-900,
+  .bg-slate-50\/50 {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  section,
+  .rounded-3xl {
+    break-inside: avoid;
+    border: 1px solid #f1f5f9 !important;
+  }
+
+  /* Ensure charts and indicators are visible */
+  svg {
+    max-width: 100% !important;
+  }
+}

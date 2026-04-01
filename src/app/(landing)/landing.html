@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PerformanceCore | Career Readiness Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#b2c5ff",
+              "inverse-surface": "#303030",
+              "secondary": "#3e58b4",
+              "outline-variant": "#c4c6d4",
+              "surface-variant": "#e2e2e2",
+              "outline": "#747683",
+              "inverse-on-surface": "#f1f1f1",
+              "on-secondary-fixed": "#001452",
+              "surface-dim": "#dadada",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "on-primary-fixed": "#001848",
+              "tertiary-fixed": "#96fa7a",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#dde1ff",
+              "secondary-fixed-dim": "#b7c4ff",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#3059b7",
+              "surface-container": "#eeeeee",
+              "on-surface-variant": "#434652",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#233f9b",
+              "background": "#f9f9f9",
+              "surface-container-low": "#f3f3f3",
+              "primary": "#1847a4",
+              "on-secondary-container": "#10308d",
+              "primary-fixed": "#dae2ff",
+              "on-tertiary-fixed-variant": "#0b5300",
+              "tertiary-container": "#147500",
+              "tertiary-fixed-dim": "#7bdd61",
+              "on-primary-fixed-variant": "#0b409e",
+              "on-primary-container": "#dbe2ff",
+              "surface": "#f9f9f9",
+              "primary-container": "#3860be",
+              "on-tertiary-fixed": "#022100",
+              "on-background": "#1b1b1b",
+              "error": "#ba1a1a",
+              "surface-bright": "#f9f9f9",
+              "tertiary": "#0d5a00",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1b1b1b",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#869eff",
+              "surface-container-highest": "#e2e2e2",
+              "on-tertiary-container": "#96fa7a",
+              "inverse-primary": "#b2c5ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1847a4 0%, #3860be 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(24px);
+            background: rgba(27, 27, 27, 0.05);
+        }
+        .perspective-text {
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/90 shadow-sm backdrop-blur-md">
+<nav class="flex justify-between items-center px-12 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-3">
+<img alt="PerformanceCore Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugRn-O4bAuKiCpa3Mf-K6arDShIlnuDZ1LgD-5MgQF2LRIRDix4P7Am8yNRFHxl75AKuRNc0qWXPFOeNKP3ol2FRFtnSlhY2xPGWZIsObNceo3TzVs3-gC1Py4yTKwUgwWJuA59-FT3ctZ6Fm5riWsnl_ZTDf1qfIb8l6S5FgQT4sw4xkhgWXFa8U9dhoCbg3zt47ghU8p048avQytKqsMH_v8z_JZAZwL66NJwOa1TUPJ46ftRjtSqdhCOOuEuavlGHsLT7BjqjQ"/>
+<div class="text-xl font-black tracking-tighter text-blue-800 uppercase font-headline">
+                PerformanceCore
+            </div>
+</div>
+<div class="hidden md:flex items-center space-x-10 font-headline font-bold tracking-tight">
+<a class="text-blue-700 border-b-2 border-blue-700 pb-1 transition-all duration-300 hover:opacity-80" href="#">Home</a>
+<a class="text-slate-600 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Why Us</a>
+<a class="text-slate-600 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Assessment</a>
+<a class="text-slate-600 hover:text-blue-600 transition-all duration-300 hover:opacity-80" href="#">Resources</a>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-md font-headline font-bold text-sm tracking-widest uppercase transition-all duration-300 scale-95 active:scale-90">
+            Check Readiness
+        </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden px-12">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-10 grayscale" data-alt="Monochromatic low-angle shot of a glass skyscraper reflecting a clear sky with sharp architectural lines and premium blue overlay texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIrqEOJ_l8bgZuYsi-HMe42zHpXy422qiWWqmag12HVs0tZpT_q8Tu1olY_Jp6eJcpp592CFRO2KxZXpiEtRf9NGxROyOI7nLuwSvSTkB4PRHugJR8dfm10-OqnVpfFa49uDZTsSEGcJyXkMqY17LA4eMFsj3bN-1LsWJBdbMv62i6T51rPIm-TMHY-GF7q-fcAJSuj9MAc8qcFr-dRT_Zl04otYjEwk2ZZdLlCwA1sx3xk_H0Z2fTlOW4OrncoOyuwHuoC2JEGsg"/>
+</div>
+<div class="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
+<div class="md:col-span-9">
+<span class="text-primary font-headline font-extrabold tracking-widest text-sm uppercase mb-6 block">Precision Coaching for Peak Performance</span>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold text-on-background perspective-text leading-tight mb-8">
+                    STOP DRIFTING.<br/>
+<span class="text-primary">ELIMINATE THE GUESSWORK.</span>
+</h1>
+<p class="text-2xl text-on-surface-variant max-w-3xl mb-8 leading-relaxed font-medium">
+                    The elite diagnostic for <span class="text-on-surface border-b-2 border-primary/30">early-career professionals, career switchers, and college students.</span>
+</p>
+<div class="bg-white/40 backdrop-blur-sm border-l-4 border-primary p-8 mb-12 max-w-2xl shadow-lg">
+<p class="text-xl text-on-background/80 italic mb-4">"The cost of not knowing how 'ready' you are—or what to work on next—is years of wasted momentum."</p>
+<p class="text-lg font-bold text-primary">Get a 0-100 Career Readiness Score and 1-3 clear action steps you can take this week.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="hero-gradient text-white px-10 py-5 rounded-md font-headline font-extrabold text-sm tracking-widest uppercase shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                        Launch 5-Min Assessment
+                    </button>
+<button class="border-2 border-outline/20 hover:bg-surface-container-high px-10 py-5 rounded-md font-headline font-extrabold text-sm tracking-widest uppercase transition-all">
+                        View Framework
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us: Asymmetric Bento Grid -->
+<section class="py-32 px-12 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto">
+<div class="mb-20 text-left">
+<h2 class="text-5xl font-headline font-extrabold text-on-background perspective-text">Why PerformanceCore?</h2>
+<div class="h-1 w-24 bg-primary mt-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Feature 1 -->
+<div class="md:col-span-7 bg-surface-container-lowest p-12 rounded-xl border-l-4 border-primary group hover:bg-white transition-all duration-500">
+<div class="flex items-start justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-8 block">bolt</span>
+<h3 class="text-3xl font-headline font-bold text-on-surface mb-4">Precision Readiness</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                                Degrees and resumes are static history. We assess your <span class="text-primary font-bold">execution potential</span> in real-time. We bridge the gap between "qualified on paper" and "ready for the room."
+                            </p>
+</div>
+<div class="hidden lg:block w-1/3 opacity-10 group-hover:opacity-20 transition-opacity">
+<img class="w-full h-auto" data-alt="Abstract close-up of high-tech circuitry and fiber optic cables glowing with blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL75lIhFebCc1Hy2BFSj9Of2SzUjvM9IjCkOLiVsbbBA-46wmcxK54efL1B1lGFrDWHcdniSnRHBrQ--MDaZFsWAd6pKPFTzcXdtwvwiHj-1qbK1BzE7LRi0PF6yXMp1UIzMK--hFsXcsn3UuE7JMneSKtshI7WGQUtpaejPlqJ7vSaxmradWsT1WxszjyBA0qWBBsEKfDQ6AmATKXRb1IT-B01cygCrL6d9Ok0GPZjPUCuMuvfzG0wBCAYpBo4RomAmTeAlEGzUc"/>
+</div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="md:col-span-5 bg-primary text-on-primary p-12 rounded-xl flex flex-col justify-between shadow-2xl shadow-primary/30">
+<div>
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl mb-8 block">psychology</span>
+<h3 class="text-3xl font-headline font-bold mb-4">AI-Powered Blueprint</h3>
+<p class="text-on-primary/80 leading-relaxed">
+                            No generic career advice. Our engine maps your profile against high-performance benchmarks to provide 1-3 surgical action steps for immediate growth.
+                        </p>
+</div>
+<div class="mt-8 pt-8 border-t border-white/10">
+<span class="text-xs uppercase tracking-widest font-bold opacity-60">Engineered by</span>
+<div class="text-lg font-black tracking-tighter">READINESS-OS v4.2</div>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="md:col-span-12 bg-surface-container-lowest p-12 rounded-xl flex flex-col md:flex-row items-center gap-12 group">
+<div class="md:w-1/2">
+<h3 class="text-3xl font-headline font-bold text-on-surface mb-4">Rapid Diagnostic</h3>
+<p class="text-lg text-on-surface-variant mb-8">
+                            A 5-minute deep dive into your professional core. Stop wondering what's missing in your profile. Get your 0-100 Career Readiness Score and start closing the gap today.
+                        </p>
+<div class="flex items-center gap-4 text-tertiary font-bold">
+<span class="material-symbols-outlined">timer</span>
+<span>Complete in under 300 seconds</span>
+</div>
+</div>
+<div class="md:w-1/2 grid grid-cols-2 gap-4">
+<div class="h-32 bg-surface-container-high rounded-lg flex items-center justify-center p-6 text-center">
+<div class="text-2xl font-headline font-extrabold text-primary">98%</div>
+<div class="text-[10px] uppercase font-bold text-outline ml-2">Accuracy</div>
+</div>
+<div class="h-32 bg-surface-container-high rounded-lg flex items-center justify-center p-6 text-center">
+<div class="text-2xl font-headline font-extrabold text-primary">12k+</div>
+<div class="text-[10px] uppercase font-bold text-outline ml-2">Evaluated</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 5 Pillars -->
+<section class="py-32 px-12 bg-surface">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+<div class="max-w-2xl">
+<span class="text-primary font-headline font-extrabold tracking-widest text-sm uppercase mb-4 block">The Global Standard</span>
+<h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-background perspective-text leading-tight">
+                        The 5 Pillars of Career Readiness
+                    </h2>
+</div>
+<p class="text-on-surface-variant max-w-sm mb-2 text-lg">
+                    Our NACE-aligned framework for measuring professional trajectory and market value.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-px bg-outline-variant/30 rounded-2xl overflow-hidden border border-outline-variant/10">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col hover:bg-primary group transition-colors duration-300">
+<span class="text-outline group-hover:text-primary-fixed-dim font-headline font-black text-4xl mb-12">01</span>
+<h4 class="text-xl font-headline font-extrabold text-on-surface group-hover:text-white mb-4">Clarity</h4>
+<p class="text-sm text-on-surface-variant group-hover:text-white/80 leading-relaxed">Defining your North Star and removing the static of indecision.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col hover:bg-primary group transition-colors duration-300">
+<span class="text-outline group-hover:text-primary-fixed-dim font-headline font-black text-4xl mb-12">02</span>
+<h4 class="text-xl font-headline font-extrabold text-on-surface group-hover:text-white mb-4">Ownership</h4>
+<p class="text-sm text-on-surface-variant group-hover:text-white/80 leading-relaxed">Taking absolute responsibility for your professional results.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col hover:bg-primary group transition-colors duration-300">
+<span class="text-outline group-hover:text-primary-fixed-dim font-headline font-black text-4xl mb-12">03</span>
+<h4 class="text-xl font-headline font-extrabold text-on-surface group-hover:text-white mb-4">Curiosity</h4>
+<p class="text-sm text-on-surface-variant group-hover:text-white/80 leading-relaxed">Aggressive skill acquisition and relentless market intelligence.</p>
+</div>
+<!-- Pillar 4 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col hover:bg-primary group transition-colors duration-300">
+<span class="text-outline group-hover:text-primary-fixed-dim font-headline font-black text-4xl mb-12">04</span>
+<h4 class="text-xl font-headline font-extrabold text-on-surface group-hover:text-white mb-4">Confidence</h4>
+<p class="text-sm text-on-surface-variant group-hover:text-white/80 leading-relaxed">Projecting authority through decisive action and preparation.</p>
+</div>
+<!-- Pillar 5 -->
+<div class="bg-surface-container-lowest p-8 flex flex-col hover:bg-primary group transition-colors duration-300">
+<span class="text-outline group-hover:text-primary-fixed-dim font-headline font-black text-4xl mb-12">05</span>
+<h4 class="text-xl font-headline font-extrabold text-on-surface group-hover:text-white mb-4">Network</h4>
+<p class="text-sm text-on-surface-variant group-hover:text-white/80 leading-relaxed">Strategic visibility and high-value connection building.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-12">
+<div class="max-w-screen-2xl mx-auto">
+<div class="hero-gradient rounded-3xl p-16 flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold text-white mb-8 relative z-10">Stop guessing. Start knowing.</h2>
+<p class="text-white/80 text-xl max-w-2xl mb-12 relative z-10">
+                    Get your definitive Career Readiness Score and the exact action steps needed to dominate your next move in under 5 minutes.
+                </p>
+<button class="bg-tertiary hover:bg-tertiary-container text-white px-12 py-5 rounded-md font-headline font-extrabold text-sm tracking-widest uppercase transition-all shadow-2xl relative z-10">
+                    Start Your Assessment Now
+                </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 bg-slate-900 border-t border-slate-800 text-slate-400 font-body text-sm tracking-wide">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<img alt="PerformanceCore" class="h-8 w-auto invert grayscale opacity-80" src="https://lh3.googleusercontent.com/aida/ADBb0ugRn-O4bAuKiCpa3Mf-K6arDShIlnuDZ1LgD-5MgQF2LRIRDix4P7Am8yNRFHxl75AKuRNc0qWXPFOeNKP3ol2FRFtnSlhY2xPGWZIsObNceo3TzVs3-gC1Py4yTKwUgwWJuA59-FT3ctZ6Fm5riWsnl_ZTDf1qfIb8l6S5FgQT4sw4xkhgWXFa8U9dhoCbg3zt47ghU8p048avQytKqsMH_v8z_JZAZwL66NJwOa1TUPJ46ftRjtSqdhCOOuEuavlGHsLT7BjqjQ"/>
+<div class="text-xl font-bold text-white">PerformanceCore</div>
+</div>
+<p class="max-w-xs text-slate-400">Engineered for the ambitious. The definitive metric for early-career readiness.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col space-y-4">
+<a class="hover:text-white transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors duration-200" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="hover:text-white transition-colors duration-200" href="#">Contact Support</a>
+<a class="hover:text-white transition-colors duration-200" href="#">Career Framework</a>
+</div>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex space-x-6">
+<span class="material-symbols-outlined hover:text-white cursor-pointer">share</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer">mail</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer">analytics</span>
+</div>
+<div class="mt-8 md:mt-0 text-slate-500">
+                © 2024 PerformanceCore. Precision Engineering for Professionals.
+            </div>
+</div>
+</div>
+</footer>
+</body></html>
