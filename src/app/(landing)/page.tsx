@@ -1,7 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+
+const MotionImage = motion(Image)
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,13 +35,15 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 md:px-12 bg-slate-50/50">
         <div className="absolute inset-0 z-0">
-          <motion.img
+          <MotionImage
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 0.04, scale: 1 }}
             transition={{ duration: 1.5 }}
             className="w-full h-full object-cover grayscale"
             alt="Corporate architecture background"
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+            fill
+            priority
           />
         </div>
         <motion.div
@@ -97,10 +102,12 @@ export default function LandingPage() {
               }}
               className="relative z-10"
             >
-              <img
+              <Image
                 src="/images/hero-momentum.png"
                 alt="Professional Momentum Visualization"
                 className="w-full h-auto rounded-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                width={800}
+                height={600}
               />
               <div className="absolute -bottom-8 -left-8 p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 backdrop-blur-sm bg-white/90">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -167,11 +174,12 @@ export default function LandingPage() {
             >
               <div className="absolute inset-0 border-2 border-primary translate-x-6 translate-y-6 z-0 rounded-2xl"></div>
               <div className="relative z-10 overflow-hidden rounded-2xl aspect-4/5 shadow-2xl">
-                <img
+                <Image
                   src="/images/architect_tita_gray.png"
-
                   alt="Tita Gray - The Architect"
                   className="w-full h-full object-cover grayscale brightness-110"
+                  width={600}
+                  height={750}
                 />
               </div>
             </motion.div>
@@ -247,7 +255,7 @@ export default function LandingPage() {
       {/* Final CTA */}
       <section className="py-32 px-6 md:px-12 bg-slate-900 overflow-hidden relative">
         <div className="absolute inset-0 opacity-20 pointer-events-none grayscale">
-          <img alt="Strategic Background" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" />
+          <Image alt="Strategic Background" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" fill />
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center">
           <h2 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-10 tracking-tight">Establish Your Performance <br />Baseline Today.</h2>

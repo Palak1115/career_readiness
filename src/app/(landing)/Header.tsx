@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -27,10 +28,13 @@ const Header = () => {
         <header className={`fixed top-0 w-full z-50 transition-all duration-300 font-body ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100 py-3' : 'bg-transparent py-5'}`}>
             <nav className="flex justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
                 <Link href="/" className="flex items-center gap-3 z-50">
-                    <img
+                    <Image
                         alt="PerformanceCore Logo"
                         className="h-8 md:h-11 w-auto object-contain"
                         src="/logo.png"
+                        width={160}
+                        height={44}
+                        priority
                     />
                     <div className="text-sm md:text-xl font-headline font-extrabold tracking-[0.05em] text-on-background uppercase">
                         PERFORMANCECORE

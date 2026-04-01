@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -7,10 +8,13 @@ const Footer = () => {
             <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 text-left">
                 <div className="space-y-8 md:w-1/3">
                     <div className="flex items-center gap-3">
-                        <img
+                        <Image
                             alt="PerformanceCore"
                             className="h-10 w-auto object-contain"
                             src="/logo.png"
+                            width={160}
+                            height={40}
+                            priority
                         />
                         <div className="text-xl font-bold text-white uppercase tracking-tighter font-headline">PerformanceCore</div>
                     </div>
