@@ -2,7 +2,7 @@ import 'antd/dist/reset.css'
 import '../styles/global.css'
 
 import { ReactNode } from 'react'
-import { Inter, Poppins, Roboto, Source_Sans_3 } from 'next/font/google'
+import { Inter, Poppins, Roboto, Source_Sans_3 as SourceSans3 } from 'next/font/google'
 import Script from 'next/script'
 import Providers from './providers'   // <-- client wrapper
 import InstallPrompt from '@/components/features/pwa/InstallPrompt'
@@ -81,7 +81,7 @@ const roboto = Roboto({
   variable: '--font-roboto',
 })
 
-const sourceSans = Source_Sans_3({
+const sourceSans = SourceSans3({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-source-sans',

@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { dimensions, questions, Question } from '@/data/assessmentData'
+import { dimensions, questions } from '@/data/assessmentData'
 
 type Step = 'onboarding' | 'assessment'
 

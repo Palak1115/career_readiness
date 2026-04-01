@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import {
     Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
     ResponsiveContainer
@@ -172,7 +171,7 @@ export default function ReportPage() {
                             </div>
 
                             <div className="space-y-10">
-                                {dimensions.map((dim, idx) => (
+                                {dimensions.map((dim) => (
                                     <div key={dim.id}>
                                         <div className="flex justify-between mb-4">
                                             <div className="flex items-center gap-3">
@@ -251,7 +250,7 @@ export default function ReportPage() {
                                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] block mb-3">Momentum Lever</span>
                                     <h3 className="font-headline text-2xl font-extrabold text-slate-700 mb-4 tracking-tight">Skill Compounding</h3>
                                     <p className="text-slate-500 text-lg leading-relaxed font-medium">
-                                        Leverage your core curiosity strength to initiate a 'Career Sprint' this month.
+                                        Leverage your core curiosity strength to initiate a &apos;Career Sprint&apos; this month.
                                     </p>
                                 </div>
                             </div>

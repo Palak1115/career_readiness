@@ -190,7 +190,7 @@ export default function LandingPage() {
                   With over two decades of high-level corporate strategy and executive coaching experience, Tita Gray has engineered the performance frameworks for Fortune 500 leaders.
                 </p>
                 <p>
-                  Her approach combines the technical rigor of business analytics with the motivational nuance of peak performance psychology. Tita doesn't just coach—she architects careers that command authority and drive measurable impact.
+                  Her approach combines the technical rigor of business analytics with the motivational nuance of peak performance psychology. Tita doesn&apos;t just coach—she architects careers that command authority and drive measurable impact.
                 </p>
               </div>
 
@@ -247,7 +247,7 @@ export default function LandingPage() {
       {/* Final CTA */}
       <section className="py-32 px-6 md:px-12 bg-slate-900 overflow-hidden relative">
         <div className="absolute inset-0 opacity-20 pointer-events-none grayscale">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" />
+          <img alt="Strategic Background" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center">
           <h2 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-10 tracking-tight">Establish Your Performance <br />Baseline Today.</h2>
