@@ -2,7 +2,7 @@ import 'antd/dist/reset.css'
 import '../styles/global.css'
 
 import { ReactNode } from 'react'
-import { Inter, Poppins, Roboto, Source_Sans_3 as SourceSans3 } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 import Script from 'next/script'
 import Providers from './providers'   // <-- client wrapper
 import InstallPrompt from '@/components/features/pwa/InstallPrompt'
@@ -67,24 +67,10 @@ export const viewport = {
 }
 
 // ---------- FONTS ----------
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-
-const poppins = Poppins({
+const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
-})
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-roboto',
-})
-
-const sourceSans = SourceSans3({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-source-sans',
+  display: 'swap',
+  variable: '--font-outfit',
 })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -92,6 +78,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <style>{`html { data-scroll-behavior: smooth; }`}</style>
+        {/* MATERIAL SYMBOLS */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
         {/* EXTERNAL ERROR SHIELD - Suppresses extension-injected SyntaxErrors */}
         <script
           dangerouslySetInnerHTML={{
@@ -142,7 +133,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
 
-      <body id="app" suppressHydrationWarning className={`${inter.variable} ${poppins.variable} ${roboto.variable} ${sourceSans.variable} font-body text-on-background bg-background`}>
+      <body id="app" suppressHydrationWarning className={`${outfit.variable} font-body text-on-background bg-background`}>
         <Providers>
           <ServiceWorkerRegistration />
           <OnlineStatusManager />

@@ -15,14 +15,14 @@ export default function DashboardClient() {
 
   return (
     <div>
-      <h1 className="font-poppins font-bold text-4xl">
+      <h1 className="font-bold text-4xl">
         Hey
       </h1>
       <div className="p-4 bg-background ">
         Should change in dark mode
       </div>
 
-      <p className="font-inter font-light ">
+      <p className="font-light ">
         Welcome back, {user?.name || 'User'} 👋
       </p>
 

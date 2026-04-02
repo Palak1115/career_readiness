@@ -91,12 +91,18 @@ export default function SurveyPage() {
                         exit={{ opacity: 0, scale: 0.98 }}
                         className="w-full max-w-2xl bg-white p-10 md:p-16 rounded-3xl shadow-xl border border-slate-100 relative z-10"
                     >
-                        <span className="text-primary font-headline font-bold tracking-[0.2em] text-[10px] uppercase mb-6 block">Step 01 of 02</span>
-                        <h1 className="text-4xl md:text-5xl font-headline font-extrabold text-on-background mb-12 tracking-tight">Define Your <br /><span className="text-primary">Professional Context.</span></h1>
+                        <span className="text-primary font-headline font-bold tracking-widest text-[10px] uppercase mb-6 block">Step 01 of 02</span>
+                        <div className="flex items-center justify-between mb-12">
+                            <h1 className="text-4xl md:text-5xl font-headline font-extrabold text-on-background tracking-tight">Define Your <br /><span className="text-primary">Professional Context.</span></h1>
+                            <div className="text-right hidden sm:block">
+                                <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest block mb-2">Estimated Time</span>
+                                <span className="text-xs font-bold text-primary bg-primary/5 px-3 py-1 rounded-full uppercase tracking-widest">3–4 minutes</span>
+                            </div>
+                        </div>
 
                         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-12">
                             <motion.div variants={itemVariants}>
-                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6">Current Professional Tier</label>
+                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 border-l-2 border-primary/20 pl-4">Current Professional Tier</label>
                                 <div className="grid grid-cols-2 gap-4">
                                     {['Student', 'Early Career', 'Mid-Level', 'Senior'].map(role => (
                                         <button
@@ -114,13 +120,13 @@ export default function SurveyPage() {
                             </motion.div>
 
                             <motion.div variants={itemVariants}>
-                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-6">Primary Objective</label>
+                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 border-l-2 border-primary/20 pl-4">Primary Objective</label>
                                 <div className="grid grid-cols-1 gap-4">
                                     {[
                                         'Grow in current role',
-                                        'Strategic industry pivot',
-                                        'Elite Leadership Transition',
-                                        'Foundational Start'
+                                        'Career Pivot',
+                                        'Leadership Transition',
+                                        'Entrepreneurship'
                                     ].map(goal => (
                                         <button
                                             key={goal}
@@ -141,9 +147,9 @@ export default function SurveyPage() {
                                 whileTap={{ scale: 0.98 }}
                                 onClick={handleStart}
                                 disabled={!userData.role || !userData.goal}
-                                className="w-full bg-primary text-white! py-6 rounded-xl font-headline font-bold text-xs tracking-[0.3em] uppercase shadow-xl transition-all hover:bg-primary/95 disabled:opacity-20 mt-6"
+                                className="w-full bg-primary text-white! py-6 rounded-xl font-headline font-bold text-xs tracking-widest uppercase shadow-xl transition-all hover:bg-primary/95 disabled:opacity-20 mt-6"
                             >
-                                Begin diagnostic
+                                Launch Diagnostic Assessment
                             </motion.button>
                         </motion.div>
                     </motion.div>
@@ -155,7 +161,7 @@ export default function SurveyPage() {
                         className="w-full max-w-4xl relative z-10"
                     >
                         {/* Scientific Progress Orchestrator */}
-                        <div className="mb-20">
+                        <div className="mb-10">
                             <div className="flex justify-between items-end mb-6">
                                 <div>
                                     <motion.div
@@ -165,26 +171,18 @@ export default function SurveyPage() {
                                         className="flex items-center gap-3 mb-3"
                                     >
                                         <span className="material-symbols-outlined text-primary text-lg">{currentDimension?.icon}</span>
-                                        <span className="font-headline font-bold text-[10px] uppercase tracking-[0.3em] text-primary">
+                                        <span className="font-headline font-bold text-[10px] uppercase tracking-widest text-primary">
                                             {currentDimension?.name} Analysis
                                         </span>
                                     </motion.div>
                                     <h2 className="font-headline font-extrabold text-3xl md:text-5xl text-on-surface tracking-tight">
-                                        {currentDimension?.name} Framework
+                                        {currentDimension?.name}
                                     </h2>
                                 </div>
                                 <div className="text-right">
                                     <span className="font-headline font-bold text-xl text-primary tracking-tighter">{Math.round(progress)}%</span>
-                                    <p className="text-[10px] uppercase font-bold text-slate-300 tracking-[0.2em] mt-1">Calibration Data</p>
+                                    <p className="text-[10px] uppercase font-bold text-slate-300 tracking-widest mt-1">Calibration Data</p>
                                 </div>
-                            </div>
-                            <div className="h-1.5 w-full bg-slate-50 rounded-full overflow-hidden border border-slate-100">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${progress}%` }}
-                                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                                    className="h-full bg-primary"
-                                ></motion.div>
                             </div>
                         </div>
 
@@ -195,14 +193,14 @@ export default function SurveyPage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                className="bg-white p-6 sm:p-12 md:p-24 rounded-3xl shadow-2xl border border-slate-50 relative overflow-hidden"
+                                className="bg-white p-6 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-slate-50 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none">
                                     <span className="material-symbols-outlined text-[200px]">{currentDimension?.icon}</span>
                                 </div>
 
                                 <div className="relative z-10">
-                                    <div className="flex items-start gap-12 mb-16">
+                                    <div className="flex items-start gap-10 mb-16">
                                         <span className="flex-none text-[10px] font-black text-slate-400 mt-3 tracking-widest">Q.{currentIndex + 1 < 10 ? `0${currentIndex + 1}` : currentIndex + 1}</span>
                                         <h3 className="font-headline text-3xl md:text-5xl text-on-surface leading-[1.1] font-extrabold tracking-tight">
                                             {currentQuestion.text}
@@ -217,7 +215,7 @@ export default function SurveyPage() {
                                                     whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.98 }}
                                                     onClick={() => handleAnswer(5)}
-                                                    className="px-14 py-6 bg-primary text-white! font-headline font-bold rounded-xl uppercase tracking-[0.2em] text-[10px] shadow-lg shadow-primary/20 transition-all"
+                                                    className="px-14 py-6 bg-primary text-white! font-headline font-bold rounded-xl uppercase tracking-widest text-[10px] shadow-lg shadow-primary/20 transition-all"
                                                 >
                                                     Yes, Documented
                                                 </motion.button>
@@ -227,7 +225,7 @@ export default function SurveyPage() {
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => handleAnswer(1)}
-                                                className="px-14 py-6 border border-slate-200 text-slate-400 font-headline font-bold rounded-xl uppercase tracking-[0.2em] text-[10px] transition-all hover:border-primary hover:text-primary"
+                                                className="px-14 py-6 border border-slate-200 text-slate-400 font-headline font-bold rounded-xl uppercase tracking-widest text-[10px] transition-all hover:border-primary hover:text-primary"
                                             >
                                                 Not Yet Observed
                                             </motion.button>
@@ -235,21 +233,21 @@ export default function SurveyPage() {
                                     ) : (
                                         <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 ">
                                             {[
-                                                { val: 1, label: 'Strongly Disagree' },
-                                                { val: 2, label: 'Disagree' },
-                                                { val: 3, label: 'Neutral' },
-                                                { val: 4, label: 'Agree' },
-                                                { val: 5, label: 'Strongly Agree' },
+                                                { val: 1, label: 'Strongly Disagree', border: 'border-red-100 hover:border-red-500', bg: 'hover:bg-red-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(239,68,68,0.3)]', text: 'text-red-200 group-hover/option:text-red-600', labelText: 'text-red-300 group-hover/option:text-red-600' },
+                                                { val: 2, label: 'Disagree', border: 'border-orange-100 hover:border-orange-500', bg: 'hover:bg-orange-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]', text: 'text-orange-200 group-hover/option:text-orange-600', labelText: 'text-orange-300 group-hover/option:text-orange-600' },
+                                                { val: 3, label: 'Neutral', border: 'border-amber-100 hover:border-amber-400', bg: 'hover:bg-amber-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(251,191,36,0.3)]', text: 'text-amber-200 group-hover/option:text-amber-600', labelText: 'text-amber-300 group-hover/option:text-amber-600' },
+                                                { val: 4, label: 'Agree', border: 'border-lime-100 hover:border-lime-500', bg: 'hover:bg-lime-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(132,204,22,0.3)]', text: 'text-lime-200 group-hover/option:text-lime-600', labelText: 'text-lime-300 group-hover/option:text-lime-600' },
+                                                { val: 5, label: 'Strongly Agree', border: 'border-green-100 hover:border-green-600', bg: 'hover:bg-green-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(22,163,74,0.3)]', text: 'text-green-200 group-hover/option:text-green-700', labelText: 'text-green-300 group-hover/option:text-green-700' },
                                             ].map((opt) => (
                                                 <motion.button
                                                     key={opt.val}
-                                                    whileHover={{ scale: 1.02, y: -2 }}
-                                                    whileTap={{ scale: 0.98 }}
+                                                    whileHover={{ scale: 1.05, y: -4 }}
+                                                    whileTap={{ scale: 0.95 }}
                                                     onClick={() => handleAnswer(opt.val)}
-                                                    className="group/option flex flex-col items-center gap-4 p-8 rounded-2xl bg-white border border-slate-100 hover:border-primary hover:shadow-xl transition-all duration-300 cursor-pointer"
+                                                    className={`group/option flex flex-col items-center gap-4 p-8 rounded-3xl bg-white border-2 transition-all duration-300 cursor-pointer ${opt.border} ${opt.bg} ${opt.shadow}`}
                                                 >
-                                                    <span className="text-4xl font-headline font-bold text-slate-300 group-hover/option:text-primary transition-colors">{opt.val}</span>
-                                                    <span className="text-[9px] text-center font-black uppercase tracking-widest text-slate-500 group-hover/option:text-primary/70 leading-none">{opt.label}</span>
+                                                    <span className={`text-4xl font-headline font-black transition-colors ${opt.text}`}>{opt.val}</span>
+                                                    <span className={`text-[10px] text-center font-black uppercase tracking-[0.2em] transition-all leading-none ${opt.labelText}`}>{opt.label}</span>
                                                 </motion.button>
                                             ))}
                                         </div>
@@ -261,12 +259,12 @@ export default function SurveyPage() {
                         <div className="mt-16 flex justify-between items-center px-12">
                             <button
                                 onClick={handleBack}
-                                className="flex items-center gap-3 font-headline font-bold text-slate-300 hover:text-primary transition-colors uppercase tracking-[0.2em] text-[10px]"
+                                className="flex items-center gap-3 font-headline font-bold text-slate-300 hover:text-primary transition-colors uppercase tracking-widest text-[10px]"
                             >
                                 <span className="material-symbols-outlined text-sm">arrow_back</span>
                                 Previous
                             </button>
-                            <div className="text-[9px] font-bold text-slate-100 uppercase tracking-[0.4em]">
+                            <div className="text-[9px] font-bold text-slate-100 uppercase tracking-widest">
                                 Secure Professional Transmission
                             </div>
                         </div>

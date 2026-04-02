@@ -25,20 +25,20 @@ const Header = () => {
     ]
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 font-body ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100 py-3' : 'bg-transparent py-5'}`}>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-500 font-body ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100 py-3' : 'bg-transparent border-none pb-6'}`}>
             <nav className="flex justify-between items-center px-6 md:px-12 max-w-7xl mx-auto">
                 <Link href="/" className="flex items-center gap-3 z-50">
                     <Image
                         alt="PerformanceCore Logo"
-                        className="h-8 md:h-11 w-auto object-contain"
+                        className="h-16 md:h-24 w-auto object-contain"
                         src="/logo.png"
-                        width={160}
-                        height={44}
+                        width={200}
+                        height={65}
                         priority
                     />
-                    <div className="text-sm md:text-xl font-headline font-extrabold tracking-[0.05em] text-on-background uppercase">
+                    {/* <div className="text-lg md:text-xl font-headline font-extrabold tracking-tight text-on-background uppercase l-h-none">
                         PERFORMANCECORE
-                    </div>
+                    </div> */}
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -47,7 +47,7 @@ const Header = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-slate-500 hover:text-primary transition-all duration-300 text-[10px] uppercase tracking-[0.2em] whitespace-nowrap"
+                            className="text-slate-500 hover:text-primary transition-all duration-300 text-[12px] uppercase tracking-[0.1em] whitespace-nowrap"
                         >
                             {link.name}
                         </a>
@@ -56,7 +56,7 @@ const Header = () => {
 
                 <div className="flex items-center gap-4">
                     <Link href="/survey" className='hidden md:block text-white!'>
-                        <button className="bg-primary hover:bg-primary/90 text-white! px-5 lg:px-8 py-2 md:py-3 rounded-xl font-headline font-bold text-[9px] md:text-[10px] tracking-[0.2em] lg:tracking-[0.3em] uppercase transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap">
+                        <button className="bg-primary hover:bg-primary/90 text-white! px-5 lg:px-8 py-2 md:py-3 rounded-xl font-headline font-bold text-[9px] md:text-[10px] tracking-[0.1em] lg:tracking-[0.15em] uppercase transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap">
                             Launch readiness
                         </button>
                     </Link>
@@ -96,7 +96,7 @@ const Header = () => {
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-headline font-bold text-on-background uppercase tracking-[0.2em]"
+                                className="text-2xl font-headline font-bold text-on-background uppercase tracking-[0.1em]"
                             >
                                 {link.name}
                             </a>
