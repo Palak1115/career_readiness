@@ -206,7 +206,7 @@ export default function SurveyPage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                className="bg-white p-6 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-slate-50 relative overflow-hidden"
+                                className="bg-white p-6 sm:p-12 md:p-12 rounded-3xl shadow-2xl border border-slate-50 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-12 opacity-[0.02] pointer-events-none">
                                     <span className="material-symbols-outlined text-[200px]">{currentDimension?.icon}</span>
