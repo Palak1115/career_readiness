@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaLinkedin, FaInstagram, FaEnvelope, FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
     return (
@@ -30,15 +31,24 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col space-y-4">
                         <Link href="/contact" className="hover:text-white transition-colors duration-200">Contact Support</Link>
-                        <Link href="/framework" className="hover:text-white transition-colors duration-200">Career Framework</Link>
+                        <Link href="/survey" className="hover:text-white transition-colors duration-200">Take Assessment</Link>
                     </div>
                 </div>
 
                 <div className="flex flex-col justify-between items-end md:w-1/3 h-full gap-8">
-                    <div className="flex space-x-8">
-                        <span className="material-symbols-outlined hover:text-white cursor-pointer transition-colors">share</span>
-                        <span className="material-symbols-outlined hover:text-white cursor-pointer transition-colors">mail</span>
-                        <span className="material-symbols-outlined hover:text-white cursor-pointer transition-colors">analytics</span>
+                    <div className="flex items-center space-x-6">
+                        <Link href="https://linkedin.com" target="_blank" className="hover:text-white hover:scale-110 transition-all duration-200">
+                            <FaLinkedin size={20} />
+                        </Link>
+                        <Link href="https://twitter.com" target="_blank" className="hover:text-white hover:scale-110 transition-all duration-200">
+                            <FaXTwitter size={20} />
+                        </Link>
+                        <Link href="https://instagram.com" target="_blank" className="hover:text-white hover:scale-110 transition-all duration-200">
+                            <FaInstagram size={20} />
+                        </Link>
+                        <Link href="mailto:support@performancecore.com" className="hover:text-white hover:scale-110 transition-all duration-200">
+                            <FaEnvelope size={20} />
+                        </Link>
                     </div>
                     <div className="text-slate-600 text-right">
                         <div>© {new Date().getFullYear()} PerformanceCore. Precision Engineering for Professionals.</div>

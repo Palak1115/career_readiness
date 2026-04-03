@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Modal } from 'antd'
+
 import { dimensions, questions } from '@/data/assessmentData'
 
 type Step = 'onboarding' | 'assessment'
@@ -36,6 +38,7 @@ export default function SurveyPage() {
     const [answers, setAnswers] = useState<Record<string, number>>({})
     const [userData, setUserData] = useState({ role: '', goal: '' })
     const [isNavigating, setIsNavigating] = useState(false)
+    const [showInstructions, setShowInstructions] = useState(false)
 
     const currentQuestion = questions[currentIndex]
     const currentDimension = dimensions.find(d => d.id === currentQuestion?.dimension)
@@ -43,8 +46,13 @@ export default function SurveyPage() {
 
     const handleStart = () => {
         if (userData.role && userData.goal) {
-            setStep('assessment')
+            setShowInstructions(true)
         }
+    }
+
+    const startAssessment = () => {
+        setShowInstructions(false)
+        setStep('assessment')
     }
 
     const handleAnswer = (value: number) => {
@@ -177,7 +185,7 @@ export default function SurveyPage() {
                                     </motion.div>
                                     <div className="flex flex-col">
                                         <h2 className="font-headline font-extrabold text-3xl md:text-5xl text-on-surface tracking-tight leading-none !mb-1 !important">
-                                           {currentDimension?.name}
+                                            {currentDimension?.name}
                                         </h2>
                                         <p className="text-slate-500 leading-snug font-medium text-base">
                                             {currentDimension?.description}
@@ -215,7 +223,7 @@ export default function SurveyPage() {
                                     {/* Scientific Interaction Set */}
                                     {currentQuestion.isBehavioral ? (
                                         <div className="flex flex-wrap gap-8">
-                                            <div className="text-white!">
+                                            <div className="text-white! relative group/behavioral">
                                                 <motion.button
                                                     whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.98 }}
@@ -224,35 +232,60 @@ export default function SurveyPage() {
                                                 >
                                                     Yes, Documented
                                                 </motion.button>
+                                                <p className="absolute -bottom-10 left-0 right-0 text-[8px] text-center text-slate-400 font-medium opacity-0 group-hover/behavioral:opacity-100 transition-opacity pointer-events-none">
+                                                    I have clear evidence or record of this professional practice.
+                                                </p>
                                             </div>
 
-                                            <motion.button
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                                onClick={() => handleAnswer(1)}
-                                                className="px-14 py-6 border border-slate-200 text-slate-400 font-headline font-bold rounded-xl uppercase tracking-widest text-[10px] transition-all hover:border-primary hover:text-primary"
-                                            >
-                                                Not Yet Observed
-                                            </motion.button>
+                                            <div className="relative group/behavioral-not">
+                                                <motion.button
+                                                    whileHover={{ scale: 1.02 }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    onClick={() => handleAnswer(1)}
+                                                    className="px-14 py-6 border border-slate-200 text-slate-400 font-headline font-bold rounded-xl uppercase tracking-widest text-[10px] transition-all hover:border-primary hover:text-primary"
+                                                >
+                                                    Not Yet Observed
+                                                </motion.button>
+                                                <p className="absolute -bottom-10 left-0 right-0 text-[8px] text-center text-slate-400 font-medium opacity-0 group-hover/behavioral-not:opacity-100 transition-opacity pointer-events-none">
+                                                    I haven&apos;t started this or don&apos;t have tangible examples yet.
+                                                </p>
+                                            </div>
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 ">
+                                        <div className="flex flex-col gap-4 max-w-2xl mx-auto">
                                             {[
-                                                { val: 1, label: 'Strongly Disagree', border: 'border-red-100 hover:border-red-500', bg: 'hover:bg-red-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(239,68,68,0.3)]', text: 'text-red-200 group-hover/option:text-red-600', labelText: 'text-red-300 group-hover/option:text-red-600' },
-                                                { val: 2, label: 'Disagree', border: 'border-orange-100 hover:border-orange-500', bg: 'hover:bg-orange-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]', text: 'text-orange-200 group-hover/option:text-orange-600', labelText: 'text-orange-300 group-hover/option:text-orange-600' },
-                                                { val: 3, label: 'Neutral', border: 'border-amber-100 hover:border-amber-400', bg: 'hover:bg-amber-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(251,191,36,0.3)]', text: 'text-amber-200 group-hover/option:text-amber-600', labelText: 'text-amber-300 group-hover/option:text-amber-600' },
-                                                { val: 4, label: 'Agree', border: 'border-lime-100 hover:border-lime-500', bg: 'hover:bg-lime-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(132,204,22,0.3)]', text: 'text-lime-200 group-hover/option:text-lime-600', labelText: 'text-lime-300 group-hover/option:text-lime-600' },
-                                                { val: 5, label: 'Strongly Agree', border: 'border-green-100 hover:border-green-600', bg: 'hover:bg-green-50/70', shadow: 'hover:shadow-[0_0_30px_rgba(22,163,74,0.3)]', text: 'text-green-200 group-hover/option:text-green-700', labelText: 'text-green-300 group-hover/option:text-green-700' },
+                                                { val: 1, label: 'NEVER', detail: 'NOT AT ALL', text: 'text-red-500', labelText: 'text-red-500', border: 'border-red-100', hover: 'hover:border-red-500 hover:bg-red-50', description: 'I have no experience with this or I strongly disagree.' },
+                                                { val: 2, label: 'RARELY', detail: 'LIMITED', text: 'text-orange-500', labelText: 'text-orange-500', border: 'border-orange-100', hover: 'hover:border-orange-500 hover:bg-orange-50', description: 'I occasionally do this, but it\'s not a regular part of my work.' },
+                                                { val: 3, label: 'SOMETIMES', detail: 'INCONSISTENT', text: 'text-amber-500', labelText: 'text-amber-500', border: 'border-amber-100', hover: 'hover:border-amber-500 hover:bg-amber-50', description: 'I apply this about half the time or I\'m unsure.' },
+                                                { val: 4, label: 'OFTEN', detail: 'CONSISTENT', text: 'text-lime-500', labelText: 'text-lime-500', border: 'border-lime-100', hover: 'hover:border-lime-500 hover:bg-lime-50', description: 'This describes me well. I consistently demonstrate this.' },
+                                                { val: 5, label: 'ALWAYS', detail: 'CORE STRENGTH', text: 'text-green-600', labelText: 'text-green-600', border: 'border-green-100', hover: 'hover:border-green-600 hover:bg-green-50', description: 'I excel at this and apply it almost every day.' },
                                             ].map((opt) => (
                                                 <motion.button
                                                     key={opt.val}
-                                                    whileHover={{ scale: 1.05, y: -4 }}
-                                                    whileTap={{ scale: 0.95 }}
+                                                    whileHover={{ scale: 1.01, x: 10 }}
+                                                    whileTap={{ scale: 0.99 }}
                                                     onClick={() => handleAnswer(opt.val)}
-                                                    className={`group/option flex flex-col items-center gap-4 p-8 rounded-3xl bg-white border-2 transition-all duration-300 cursor-pointer ${opt.border} ${opt.bg} ${opt.shadow}`}
+                                                    className={`w-full group/option p-4 rounded-2xl border-2 transition-all duration-300 text-left flex items-center gap-6 ${opt.border} ${opt.hover} ${answers[currentQuestion.id] === opt.val ? 'bg-slate-50 border-primary' : 'bg-white'}`}
                                                 >
-                                                    <span className={`text-4xl font-headline font-black transition-colors ${opt.text}`}>{opt.val}</span>
-                                                    <span className={`text-[10px] text-center font-black uppercase tracking-[0.2em] transition-all leading-none ${opt.labelText}`}>{opt.label}</span>
+                                                    <div className="shrink-0 w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-sm group-hover/option:shadow-md transition-all">
+                                                        <span className={`text-2xl font-headline font-black transition-colors ${opt.text}`}>{opt.val}</span>
+                                                    </div>
+
+                                                    <div className="grow grid grid-cols-1 sm:grid-cols-3 items-center gap-4">
+                                                        <div className="flex flex-col">
+                                                            <span className={`text-xs font-black uppercase tracking-widest ${opt.labelText}`}>{opt.label}</span>
+                                                            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 opacity-60">{opt.detail}</span>
+                                                        </div>
+                                                        <div className="sm:col-span-2">
+                                                            <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                                                {opt.description}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="shrink-0 opacity-0 group-hover/option:opacity-100 transition-opacity">
+                                                        <span className="material-symbols-outlined text-primary">arrow_forward</span>
+                                                    </div>
                                                 </motion.button>
                                             ))}
                                         </div>
@@ -269,31 +302,192 @@ export default function SurveyPage() {
                                 <span className="material-symbols-outlined text-sm">arrow_back</span>
                                 Previous
                             </button>
-                            {/* <div className="text-[9px] font-bold text-slate-100 uppercase tracking-widest">
-                                Secure Professional Transmission
-                            </div> */}
                         </div>
-
-                        {/* <motion.aside
-                            key={`insight-${currentDimension?.id}`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="mt-24 border-t border-slate-100 pt-16 flex flex-col md:flex-row items-start gap-12 px-12"
-                        >
-                            <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center shrink-0">
-                                <span className="material-symbols-outlined text-slate-400 text-2xl">{currentDimension?.icon}</span>
-                            </div>
-                            <div className="max-w-2xl">
-                                <h4 className="font-headline font-extrabold text-on-background text-lg mb-4 tracking-tight">Theory: {currentDimension?.name}</h4>
-                                <p className="text-slate-500 leading-relaxed font-medium text-base">
-                                    {currentDimension?.description}
-                                </p>
-                            </div>
-                        </motion.aside> */}
                     </motion.div>
                 )}
             </AnimatePresence>
-        </main>
+
+            <Modal
+                open={showInstructions}
+                onCancel={() => setShowInstructions(false)}
+                footer={null}
+                closable={false}
+                centered
+                width={1100}
+                styles={{
+                    mask: { backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255,255,255,0.7)' },
+                    body: {
+                        padding: 0,
+                        overflow: 'hidden',
+                        borderRadius: '24px',
+                        maxHeight: '90vh'
+                    }
+                }}
+            >
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                    {/* Left Column: Instructions */}
+                    <div className="bg-white p-4 relative flex flex-col overflow-hidden">
+                        {/* Background Accents */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -ml-32 -mb-32" />
+
+                        <div className="relative z-10 space-y-4 overflow-y-auto flex-1 pr-1">
+                            {/* Header Section */}
+                            <div>
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className="px-2 py-0.5 bg-primary/10 rounded-full border border-primary/20">
+                                        <span className="text-[8px] font-black text-primary uppercase tracking-[0.2em]">Diagnostic Prep</span>
+                                    </div>
+                                    <div className="px-2 py-0.5 bg-slate-100 rounded-full border border-slate-200">
+                                        <span className="text-[8px] font-black text-slate-500 uppercase tracking-[0.2em]">{userData.role || 'Professional'}</span>
+                                    </div>
+                                </div>
+                                <h1 className="text-3xl md:text-4xl font-headline font-extrabold text-on-background tracking-tighter leading-[0.9] mb-2">
+                                    Ready to Begin, <br />
+                                    <span className="text-primary italic font-serif"> {userData.role?.split(' ')[0]}?</span>
+                                </h1>
+                                <p className="text-slate-500 font-medium text-[13px] max-w-md leading-tight">
+                                    We&apos;ve tailored this diagnostic for your goal: <span className="text-on-background font-bold tracking-tight">&ldquo;{userData.goal}&rdquo;</span>.
+                                </p>
+                            </div>
+
+                            {/* Impact/Benefits Section */}
+                            <div className="grid grid-cols-3 gap-2">
+                                {[
+                                    { icon: 'bolt', title: 'AI Insights', desc: 'Real-time' },
+                                    { icon: 'query_stats', title: 'Calibration', desc: 'Benchmarked' },
+                                    { icon: 'account_tree', title: 'Roadmap', desc: 'Custom Plan' }
+                                ].map((benefit, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 * i }}
+                                        className="p-2 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center text-center group hover:border-primary/30 transition-all hover:bg-white hover:shadow-sm"
+                                    >
+                                        <span className="material-symbols-outlined text-primary text-base mb-0.5 group-hover:scale-110 transition-transform">{benefit.icon}</span>
+                                        <h3 className="text-[8px] font-black text-on-background uppercase tracking-tight mb-0.5">{benefit.title}</h3>
+                                        <p className="text-[8px] text-slate-400 font-bold uppercase tracking-wider leading-none">{benefit.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Response Architecture: Hyper-Focus Diagnostic Core */}
+                            <div className="relative group/focus overflow-hidden rounded-[16px] bg-linear-to-br from-primary/8 via-white to-white border border-primary/20 shadow-[0_10px_40px_rgba(24,71,164,0.12)] transition-all duration-1000 hover:shadow-[0_15px_50px_rgba(24,71,164,0.18)]">
+                                <div className="relative z-20">
+
+
+                                    <div className="overflow-y-auto custom-scrollbar">
+                                        <div className="flex flex-col gap-1 relative">
+                                            {[
+                                                { val: 1, color: 'text-red-500', groupHoverBg: 'group-hover/row:bg-red-500 group-hover/row:border-red-500 group-hover/row:shadow-[0_0_15px_rgba(239,68,68,0.3)]', label: 'NEVER', detail: 'NOT AT ALL', desc: 'I have no experience with this or I strongly disagree.' },
+                                                { val: 2, color: 'text-orange-500', groupHoverBg: 'group-hover/row:bg-orange-500 group-hover/row:border-orange-500 group-hover/row:shadow-[0_0_15px_rgba(249,115,22,0.3)]', label: 'RARELY', detail: 'LIMITED', desc: 'I occasionally do this, but it\'s not a regular part of my work.' },
+                                                { val: 3, color: 'text-amber-500', groupHoverBg: 'group-hover/row:bg-amber-500 group-hover/row:border-amber-500 group-hover/row:shadow-[0_0_15px_rgba(251,191,36,0.3)]', label: 'SOMETIMES', detail: 'INCONSISTENT', desc: 'I apply this about half the time or I\'m unsure.' },
+                                                { val: 4, color: 'text-lime-500', groupHoverBg: 'group-hover/row:bg-lime-500 group-hover/row:border-lime-500 group-hover/row:shadow-[0_0_15px_rgba(132,204,22,0.3)]', label: 'OFTEN', detail: 'CONSISTENT', desc: 'This describes me well. I consistently demonstrate this.' },
+                                                { val: 5, color: 'text-green-600', groupHoverBg: 'group-hover/row:bg-green-600 group-hover/row:border-green-600 group-hover/row:shadow-[0_0_15px_rgba(22,163,74,0.3)]', label: 'ALWAYS', detail: 'CORE STRENGTH', desc: 'I excel at this and apply it almost every day.' },
+                                            ].map((step, i) => (
+                                                <div key={i} className="flex items-center gap-3 p-1.5 rounded-xl transition-all hover:bg-white border border-transparent hover:border-slate-100 group/row cursor-default">
+                                                    <div className={`w-7 h-7 rounded-lg flex flex-col items-center justify-center transition-all duration-300 border border-slate-100 bg-white relative z-10 shrink-0 
+                                                        ${step.groupHoverBg}`}>
+                                                        <span className={`text-[9px] font-black transition-colors duration-300 text-on-background group-hover/row:text-white!`}>{step.val}</span>
+                                                    </div>
+
+                                                    <div className="w-28 shrink-0">
+                                                        <span className={`text-[12px] font-black uppercase tracking-tight ${step.color} block leading-none`}>
+                                                            {step.label}
+                                                        </span>
+                                                        <p className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter leading-none mt-0.5">
+                                                            {step.detail}
+                                                        </p>
+                                                    </div>
+
+                                                    <div className="grow border-l border-slate-100 pl-3">
+                                                        <p className="text-[11px] text-slate-500 font-medium leading-snug">
+                                                            {step.desc}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Footer Actions */}
+                        <div className="flex flex-col gap-3 pt-3 shrink-0">
+                            <motion.button
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.99 }}
+                                onClick={startAssessment}
+                                className="w-full bg-primary text-white! py-3 rounded-xl font-headline font-bold text-[10px] tracking-[0.1em] uppercase shadow-lg hover:shadow-xl transition-all hover:bg-primary/95 flex items-center justify-center gap-3 group"
+                            >
+                                Initialize Diagnostic Analysis
+                                <span className="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </motion.button>
+
+                            <button
+                                onClick={() => setShowInstructions(false)}
+                                className="text-[9px] font-black text-slate-300 uppercase tracking-wider hover:text-primary transition-colors flex items-center justify-center gap-2 py-1"
+                            >
+                                <span className="material-symbols-outlined text-xs">arrow_back</span>
+                                Modify Contextual Data
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Pillars Summary */}
+                    <div className="hidden lg:flex flex-col bg-slate-900 border-l border-white/5 relative overflow-hidden p-8">
+                        {/* Abstract Background */}
+                        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-slate-900 to-slate-950" />
+                        <div className="absolute top-0 right-0 w-full h-full opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+
+                        <div className="relative z-10 h-full flex flex-col">
+                            <div className="mb-auto">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-1 h-6 bg-primary rounded-full" />
+                                    <h2 className="text-white! font-headline font-black text-xl tracking-tight">The 5 Core <br />Pillars</h2>
+                                </div>
+                                <p className="text-slate-400 text-[10px] font-medium leading-relaxed max-w-xs mb-6 uppercase tracking-widest">
+                                    Assess your professional readiness:
+                                </p>
+
+                                <div className="space-y-3">
+                                    {dimensions.map((dim, i) => (
+                                        <motion.div
+                                            key={dim.id}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.4 + (i * 0.1) }}
+                                            className="flex items-center gap-3 group cursor-default"
+                                        >
+                                            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                                                <span className="material-symbols-outlined text-white! text-base">{dim.icon}</span>
+                                            </div>
+                                            <div className="flex-1 border-b border-white/5 pb-2 group-hover:border-white/10 transition-all">
+                                                <h4 className="text-white! font-bold text-[11px] uppercase tracking-widest group-hover:text-primary transition-colors">{dim.name}</h4>
+                                                <p className="text-slate-500 text-[11px] font-medium leading-tight group-hover:text-slate-400 transition-colors">{dim.description.split(' (')[0]}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="mt-8 bg-white/5 rounded-2xl p-4 border border-white/10 backdrop-blur-sm">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="text-[9px] font-black text-white/60 uppercase tracking-widest">Calibration Active</span>
+                                </div>
+                                <p className="text-white/80 text-[10px] font-medium italic leading-snug">
+                                    &ldquo;Your transition from {userData.role?.split(' ')[0] || 'Current Level'} to your next peak starts here.&rdquo;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+        </main >
     )
 }
