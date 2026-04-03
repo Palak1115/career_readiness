@@ -94,7 +94,7 @@ export default function SurveyPage() {
                         <span className="text-primary font-headline font-bold tracking-widest text-[10px] uppercase mb-6 block">Step 01 of 02</span>
                         <div className="flex items-center justify-between mb-12">
                             <h1 className="text-4xl md:text-5xl font-headline font-extrabold text-on-background tracking-tight">Define Your <br /><span className="text-primary">Professional Context.</span></h1>
-                            <div className="text-right hidden sm:block">
+                            <div className="text-right hidden w-full sm:block">
                                 <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest block mb-2">Estimated Time</span>
                                 <span className="text-xs font-bold text-primary bg-primary/5 px-3 py-1 rounded-full uppercase tracking-widest">3–4 minutes</span>
                             </div>
@@ -162,7 +162,7 @@ export default function SurveyPage() {
                     >
                         {/* Scientific Progress Orchestrator */}
                         <div className="mb-10">
-                            <div className="flex justify-between items-end mb-6">
+                            <div className="flex justify-between items-center mb-6">
                                 <div>
                                     <motion.div
                                         key={`label-${currentDimension?.id}`}
@@ -175,9 +175,14 @@ export default function SurveyPage() {
                                             {currentDimension?.name} Analysis
                                         </span>
                                     </motion.div>
-                                    <h2 className="font-headline font-extrabold text-3xl md:text-5xl text-on-surface tracking-tight">
-                                        {currentDimension?.name}
-                                    </h2>
+                                    <div className="flex flex-col">
+                                        <h2 className="font-headline font-extrabold text-3xl md:text-5xl text-on-surface tracking-tight leading-none !mb-1 !important">
+                                           {currentDimension?.name}
+                                        </h2>
+                                        <p className="text-slate-500 leading-snug font-medium text-base">
+                                            {currentDimension?.description}
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="text-right">
                                     <span className="font-headline font-bold text-xl text-primary tracking-tighter">{Math.round(progress)}%</span>
@@ -264,12 +269,12 @@ export default function SurveyPage() {
                                 <span className="material-symbols-outlined text-sm">arrow_back</span>
                                 Previous
                             </button>
-                            <div className="text-[9px] font-bold text-slate-100 uppercase tracking-widest">
+                            {/* <div className="text-[9px] font-bold text-slate-100 uppercase tracking-widest">
                                 Secure Professional Transmission
-                            </div>
+                            </div> */}
                         </div>
 
-                        <motion.aside
+                        {/* <motion.aside
                             key={`insight-${currentDimension?.id}`}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -285,7 +290,7 @@ export default function SurveyPage() {
                                     {currentDimension?.description}
                                 </p>
                             </div>
-                        </motion.aside>
+                        </motion.aside> */}
                     </motion.div>
                 )}
             </AnimatePresence>
